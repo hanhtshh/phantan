@@ -105,7 +105,7 @@ const useFilter = (data) => {
     }
     if (searchText) {
       services = services.filter((search) =>
-        search.title.toLowerCase().includes(searchText.toLowerCase())
+        search?.name.toLowerCase().includes(searchText.toLowerCase())
       );
     }
 

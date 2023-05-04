@@ -19,6 +19,7 @@ import useToggleDrawer from '../../hooks/useToggleDrawer';
 
 const ProductTable = ({ products }) => {
   const { serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
+  console.log(products)
 
   return (
     <>
@@ -39,55 +40,22 @@ const ProductTable = ({ products }) => {
               <div className="flex items-center">
                 <Avatar
                   className="hidden p-1 mr-2 md:block bg-gray-50 shadow-none"
-                  src={product.image}
-                  alt={product.title}
+                  src={product?.image[0]}
+                  alt={product?.name}
                 />
-                <div>
-                  <h2 className="text-sm font-medium">{product.title}</h2>
-                </div>
+                {product?.name}
               </div>
             </TableCell>
-            <TableCell className='hidden'>
-              <span className="text-sm">{product.parent}</span>
+
+            <TableCell>
+              <span className="text-sm font-semibold">{product?.category?.name}</span>
             </TableCell>
 
             <TableCell>
-              <span className="text-sm font-semibold">₹ {product.price}</span>
-            </TableCell>
-
-            <TableCell>
-              <span className="text-sm">{product.quantity}</span>
+              <span className="text-sm font-semibold">{product?.price}vnđ</span>
             </TableCell>
             <TableCell>
-              {product.quantity > 0 ? (
-                <Badge type="success">Selling</Badge>
-              ) : (
-                <Badge type="danger">Sold Out</Badge>
-              )}
-            </TableCell>
-
-            <TableCell>
-              <span className="text-sm font-semibold">
-                {product.discount !== 0 && (
-                  <span>{product.discount.toFixed(0)}% Off</span>
-                )}
-              </span>
-            </TableCell>
-            <TableCell>
-              <Link
-                to={`/product/${product._id}`}
-                className="flex justify-center text-center text-gray-400 hover:text-green-600"
-              >
-                <Tooltip
-                  id="details"
-                  Icon={FiEye}
-                  title="Details"
-                  bgColor="#10B981"
-                />
-              </Link>
-            </TableCell>
-            <TableCell>
-              <ShowHideButton id={product._id} status={product.status} />
+              <span className="text-sm font-semibold">{product?.sale}vnđ</span>
             </TableCell>
             <TableCell>
               <EditDeleteButton

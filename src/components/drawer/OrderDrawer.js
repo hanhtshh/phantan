@@ -18,13 +18,16 @@ import useProductSubmit from '../../hooks/useProductSubmit';
 const OrderDrawer = ({ id }) => {
   const {
     register,
-    watch,
     handleSubmit,
     onSubmit,
     errors,
-    tag,
-    setTag,
+    image,
+    setImage,
+    size,
+    setSize,
   } = useProductSubmit(id);
+
+  console.log(image, size);
 
   return (
     <>
@@ -135,36 +138,7 @@ const OrderDrawer = ({ id }) => {
               </div>
             </div>
 
-            <div className="hidden grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Child Category" />
-              <div className="col-span-8 sm:col-span-4">
-                <Select
-                  className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 dark:bg-white border-transparent focus:bg-white"
-                  name="children"
-                  {...register('children', {
-                    required: 'Product children category is required!',
-                  })}
-                >
-                  <option value="" defaultValue hidden>
-                    Select child category
-                  </option>
-                  <ChildrenCategory value={watch('parent')} />
-                </Select>
-                <Error errorName={errors.children} />
-              </div>
-            </div>
 
-            <div className="hidden grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Product Type" />
-              <div className="col-span-8 sm:col-span-4">
-                <SelectOption
-                  register={register}
-                  label="Product type"
-                  name="type"
-                />
-                <Error errorName={errors.type} />
-              </div>
-            </div>
 
             {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Flash Sale" />
@@ -283,16 +257,6 @@ const OrderDrawer = ({ id }) => {
               </div>
             </div> */}
 
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Product Tag" />
-              <div className="col-span-8 sm:col-span-4">
-                <ReactTagInput
-                  placeholder="Product Tag (Write then press enter to add new tag )"
-                  tags={tag}
-                  onChange={(newTags) => setTag(newTags)}
-                />
-              </div>
-            </div>
           </div>
 
           <DrawerButton id={id} title="Product" />

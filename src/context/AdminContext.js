@@ -12,7 +12,8 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case 'USER_LOGIN':
-      return { ...state, adminInfo: action.payload };
+      console.log(action.payload)
+      return { ...state, adminInfo: action.payload.data };
 
     case 'USER_LOGOUT':
       return {

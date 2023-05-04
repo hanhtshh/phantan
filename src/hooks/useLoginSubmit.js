@@ -16,29 +16,19 @@ const useLoginSubmit = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = ({ name, email, verifyEmail, password, role }) => {
+  const onSubmit = ({ name, username, password }) => {
     setLoading(true);
 
-    if (verifyEmail) {
-      AdminServices.forgetPassword({ verifyEmail })
-        .then((res) => {
-          setLoading(false);
-          notifySuccess(res.message);
-        })
-        .catch((err) => {
-          setLoading(false);
-          notifyError(err ? err.response.data.message : err.message);
-        });
-    } else if (name) {
-      AdminServices.registerAdmin({ name, email, password, role })
+    if (name) {
+      AdminServices.registerAdmin({ name, username, password })
         .then((res) => {
           if (res) {
             console.log(res);
             setLoading(false);
             notifySuccess('Register Success!');
-            dispatch({ type: 'USER_LOGIN', payload: res });
-            Cookies.set('adminInfo', JSON.stringify(res));
-            history.replace('/');
+            // dispatch({ type: 'USER_LOGIN', payload: res });
+            // Cookies.set('adminInfo', JSON.stringify(res));
+            // history.replace('/');
           }
         })
         .catch((err) => {
@@ -46,7 +36,7 @@ const useLoginSubmit = () => {
           setLoading(false);
         });
     } else {
-      AdminServices.loginAdmin({ email, password })
+      AdminServices.loginAdmin({ username, password })
         .then((res) => {
           if (res) {
             setLoading(false);

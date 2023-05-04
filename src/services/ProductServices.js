@@ -2,7 +2,7 @@ import requests from './httpService';
 
 const ProductServices = {
   getAllProducts() {
-    return requests.get('/products');
+    return requests.get('/item');
   },
 
   getStockOutProducts() {
@@ -10,11 +10,11 @@ const ProductServices = {
   },
 
   getProductById(id) {
-    return requests.post(`/products/${id}`);
+    return requests.post(`/item/get-by-id/${id}`);
   },
 
   addProduct(body) {
-    return requests.post('/products/add', body);
+    return requests.post('/item', body);
   },
 
   addAllProducts(body) {
@@ -22,7 +22,7 @@ const ProductServices = {
   },
 
   updateProduct(id, body) {
-    return requests.put(`/products/${id}`, body);
+    return requests.put(`/item/${id}`, body);
   },
 
   updateStatus(id, body) {
@@ -30,7 +30,7 @@ const ProductServices = {
   },
 
   deleteProduct(id) {
-    return requests.delete(`/products/${id}`);
+    return requests.delete(`/item/${id}`);
   },
 };
 

@@ -44,7 +44,7 @@ const Login = () => {
                     register={register}
                     defaultValue="admin@gmail.com"
                     label="Email"
-                    name="email"
+                    name="username"
                     type="email"
                     placeholder="john@doe.com"
                   />

@@ -45,7 +45,7 @@ const Products = () => {
     handleOnDrop,
     handleUploadProducts,
   } = useFilter(data);
-
+  console.log(dataTable);
   return (
     <>
       <PageTitle>Products</PageTitle>
@@ -57,15 +57,20 @@ const Products = () => {
         <CardBody>
           <form
             onSubmit={handleSubmitForAll}
+            onKeyDown={(e) => {
+              if (e.keyCode == '12') {
+                handleSubmitForAll()
+              }
+            }}
             className="py-3 grid gap-4 lg:gap-6 xl:gap-6 md:flex xl:flex"
           >
-            <div className="hidden flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
+            <div className=" flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
               <Input
                 ref={searchRef}
                 className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"
                 type="search"
                 name="search"
-                placeholder="Search by product name"
+                placeholder="Tìm kiếm theo tên sản phẩm"
               />
               <button
                 type="submit"
@@ -81,10 +86,10 @@ const Products = () => {
                 className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"
               >
                 <option value="All" defaultValue hidden>
-                  Price
+                  Giá
                 </option>
-                <option value="Low">Low to High</option>
-                <option value="High">High to Low</option>
+                <option value="Low">Thấp lên Cao</option>
+                <option value="High">Cao xuống Thấp</option>
               </Select>
             </div>
             <div className="w-full flex justify-end">
@@ -92,7 +97,7 @@ const Products = () => {
                 <span className="mr-3">
                   <FiPlus />
                 </span>
-                Add Product
+                Thêm sản phẩm
               </Button>
             </div>
           </form>
@@ -178,15 +183,11 @@ const Products = () => {
             <TableHeader>
               <tr>
                 <TableCell>SKU</TableCell>
-                <TableCell>Product name</TableCell>
-                <TableCell className='hidden'>Category</TableCell>
-                <TableCell>Price</TableCell>
-                <TableCell>Stock</TableCell>
-                <TableCell>Status</TableCell>
-                <TableCell>Discount</TableCell>
-                <TableCell>Details</TableCell>
-                <TableCell className="text-center">Published</TableCell>
-                <TableCell className="text-right">Actions</TableCell>
+                <TableCell>Tên sản phẩm</TableCell>
+                <TableCell >Danh mục</TableCell>
+                <TableCell>Giá</TableCell>
+                <TableCell>Sale</TableCell>
+                <TableCell className="text-right">Hành động</TableCell>
               </tr>
             </TableHeader>
             <ProductTable products={dataTable} />

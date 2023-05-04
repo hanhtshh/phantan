@@ -5,9 +5,11 @@ import { FiUploadCloud } from 'react-icons/fi';
 import { uuid } from 'uuidv4'
 import { storage } from '../../firebase/firebase_config';
 import { uploadBytesResumable, ref, getDownloadURL } from 'firebase/storage'
+import { IoCloseCircleOutline } from 'react-icons/io5';
 
-const Uploader = ({ setImageUrl, imageUrl }) => {
+const Uploader = ({ setImage, image }) => {
   const [files, setFiles] = useState();
+  console.log(image)
 
   useEffect(() => {
     if (files) {
@@ -32,7 +34,7 @@ const Uploader = ({ setImageUrl, imageUrl }) => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            setImageUrl(downloadURL)
+            setImage(image => image?.concat([downloadURL]))
             // setLoading(false)
           });
         }
@@ -40,6 +42,9 @@ const Uploader = ({ setImageUrl, imageUrl }) => {
     }
   }, [files])
 
+  const deleteImage = (imageUrl) => {
+    setImage(image => image?.filter(img => img != imageUrl));
+  }
 
   return (
     <div className="w-full text-center">
@@ -55,12 +60,17 @@ const Uploader = ({ setImageUrl, imageUrl }) => {
         </em>
       </div>
       <aside className="flex flex-row flex-wrap mt-4">
-        {imageUrl && (
-          <img
-            className="inline-flex border rounded-md border-gray-100 dark:border-gray-600 w-24 max-h-24 p-2"
-            src={imageUrl}
-            alt="product"
-          />
+        {image?.map((imageUrl) =>
+        (
+          <div style={{ position: "relative" }}>
+            <img
+              className="inline-flex border rounded-md border-gray-100 dark:border-gray-600 w-24 max-h-24 p-2"
+              src={imageUrl}
+              alt="product"
+            />
+            <IoCloseCircleOutline style={{ position: "absolute", right: 0, top: 0 }} onClick={() => deleteImage(imageUrl)} />
+          </div>
+        )
         )}
       </aside>
     </div>
