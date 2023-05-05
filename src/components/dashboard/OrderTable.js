@@ -11,26 +11,26 @@ const OrderTable = ({ orders }) => {
           <TableRow key={order._id}>
             <TableCell>
               <span className="text-sm">
-                {dayjs(order.createdAt).format('MMM D, YYYY')}
+               {order?.customer?.name}
               </span>
             </TableCell>
 
             <TableCell>
-              <span className="text-sm ">{order.address.substring(0)}</span>
+              <span className="text-sm ">{order.oder_date}</span>
             </TableCell>
             <TableCell>
               {' '}
-              <span className="text-sm">{order.contact}</span>{' '}
+              <span className="text-sm">{order.telephone}</span>{' '}
             </TableCell>
             <TableCell>
-              <span className="text-sm font-semibold">
-                {order.paymentMethod}
+              <span className="text-sm">
+                {order.address}
               </span>
             </TableCell>
             <TableCell>
               {' '}
               <span className="text-sm font-semibold">
-                ₹ {Math.round(order.total)}.00
+               {order.cost}
               </span>{' '}
             </TableCell>
             <TableCell>

@@ -26,11 +26,11 @@ const sidebar = [
     icon: FiShoppingBag,
     name: 'Products',
   },
-  // {
-  //   path: '/category',
-  //   icon: FiList,
-  //   name: 'Category',
-  // },
+  {
+    path: '/category',
+    icon: FiList,
+    name: 'Category',
+  },
   {
     path: '/customers',
     icon: FiUsers,
@@ -46,11 +46,11 @@ const sidebar = [
   //   icon: FiGift,
   //   name: 'Coupons',
   // },
-  {
-    path: '/our-staff',
-    icon: FiUser,
-    name: 'Our Staff',
-  },
+  // {
+  //   path: '/our-staff',
+  //   icon: FiUser,
+  //   name: 'Our Staff',
+  // },
   {
     path: '/setting',
     icon: FiSettings,

@@ -39,10 +39,9 @@ const Category = () => {
     serviceData,
     handleSubmitCategory,
   } = useFilter(data);
-
   return (
     <>
-      <PageTitle>Category</PageTitle>
+      <PageTitle>Danh mục sản phẩm</PageTitle>
 
       <MainDrawer>
         <CategoryDrawer />
@@ -60,14 +59,14 @@ const Category = () => {
                 className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"
                 type="search"
                 name="search"
-                placeholder="Search by category type"
+                placeholder="Tìm kiếm theo tên danh mục"
               />
               <button
                 type="submit"
                 className="absolute right-0 top-0 mt-5 mr-1"
               ></button>
             </div>
-            <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
+            <div className="hidden flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
               <SelectCategory setFilter={setFilter} />
             </div>
             <div className="w-full md:w-56 lg:w-56 xl:w-56">
@@ -75,7 +74,7 @@ const Category = () => {
                 <span className="mr-3">
                   <FiPlus />
                 </span>
-                Add Category
+                Thêm danh mục
               </Button>
             </div>
           </form>
@@ -89,12 +88,8 @@ const Category = () => {
           <Table>
             <TableHeader>
               <tr>
-                <TableCell>ID</TableCell>
-                <TableCell>Icon</TableCell>
-                <TableCell>Parent</TableCell>
-                <TableCell>Children</TableCell>
-                <TableCell>Type</TableCell>
-                <TableCell className="text-center">Published</TableCell>
+                <TableCell>ID</TableCell>             
+                <TableCell>Tên</TableCell>
                 <TableCell className="text-right">Actions</TableCell>
               </tr>
             </TableHeader>

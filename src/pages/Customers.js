@@ -34,7 +34,7 @@ const Customers = () => {
 
   return (
     <>
-      <PageTitle>Customers</PageTitle>
+      <PageTitle>Danh sách khách hàng</PageTitle>
       <Card className="min-w-0 shadow-xs overflow-hidden bg-white dark:bg-gray-800 mb-5">
         <CardBody>
           <form
@@ -47,7 +47,7 @@ const Customers = () => {
                 className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"
                 type="search"
                 name="search"
-                placeholder="Search by name/email/phone"
+                placeholder="Tìm kiếm theo tên"
               />
               <button
                 type="submit"
@@ -66,10 +66,10 @@ const Customers = () => {
             <TableHeader>
               <tr>
                 <TableCell>ID</TableCell>
-                <TableCell>Joining Date</TableCell>
-                <TableCell>Name</TableCell>
+                <TableCell>Tên</TableCell>
                 <TableCell>Email</TableCell>
-                <TableCell>Phone</TableCell>
+                <TableCell>Số điện thoại</TableCell>
+                <TableCell>Địa chỉ</TableCell>
                 <TableCell className="text-right">Actions</TableCell>
               </tr>
             </TableHeader>

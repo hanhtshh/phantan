@@ -8,8 +8,8 @@ import InputArea from '../form/InputArea';
 import LabelArea from '../form/LabelArea';
 import SelectOption from '../form/SelectOption';
 import DrawerButton from '../form/DrawerButton';
-import Uploader from '../image-uploader/Uploader';
 import useCategorySubmit from '../../hooks/useCategorySubmit';
+import UploaderSingle from '../image-uploader/UploaderSingle';
 
 const CategoryDrawer = ({ id }) => {
   const {
@@ -19,8 +19,6 @@ const CategoryDrawer = ({ id }) => {
     errors,
     imageUrl,
     setImageUrl,
-    children,
-    setChildren,
   } = useCategorySubmit(id);
 
   return (
@@ -28,61 +26,45 @@ const CategoryDrawer = ({ id }) => {
       <div className="w-full relative p-6 border-b border-gray-100 bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
         {id ? (
           <Title
-            title="Update Category"
-            description="Updated your Product category and necessary information from here"
+            title="Cập nhật danh mục sản phẩm"
+            description="Cập nhật thông tin danh mục sản phẩm tại đây"
           />
         ) : (
           <Title
-            title="Add Category"
-            description=" Add your Product category and necessary information from here"
+            title="Thêm danh mục sản phẩm"
+            description="Thêm thông tin danh mục sản phẩm tại đây"
           />
         )}
       </div>
       <Scrollbars className="w-full md:w-7/12 lg:w-8/12 xl:w-8/12 relative dark:bg-gray-700 dark:text-gray-200">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          onSubmit();
+        }}>
           <div className="p-6 flex-grow scrollbar-hide w-full max-h-full pb-40">
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Category Icon" />
               <div className="col-span-8 sm:col-span-4">
-                <Uploader imageUrl={imageUrl} setImageUrl={setImageUrl} />
-              </div>
-            </div>
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Product Type" />
-              <div className="col-span-8 sm:col-span-4">
-                <SelectOption
-                  register={register}
-                  label="Product type"
-                  name="type"
-                />
-                <Error errorName={errors.type} />
+                <UploaderSingle imageUrl={imageUrl} setImageUrl={setImageUrl} />
               </div>
             </div>
 
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Parent Category" />
+              <LabelArea label="Tên danh mục" />
               <div className="col-span-8 sm:col-span-4">
                 <InputArea
                   register={register}
-                  label="Category title"
-                  name="parent"
+                  required="false"
+                  label="Tên danh mục"
+                  name="name"
                   type="text"
-                  placeholder="Category title"
+                  placeholder="Tên danh mục"
                 />
-                <Error errorName={errors.parent} />
+                <Error errorName={errors.category} />
               </div>
             </div>
 
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Child Category" />
-              <div className="col-span-8 sm:col-span-4">
-                <ReactTagInput
-                  placeholder="Child category  (Write then press enter to add new child category )"
-                  tags={children}
-                  onChange={(child) => setChildren(child)}
-                />
-              </div>
-            </div>
+
           </div>
 
           <DrawerButton id={id} title="Category" />

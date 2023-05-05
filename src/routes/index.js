@@ -39,10 +39,10 @@ const routes = [
     path: '/product/:id',
     component: ProductDetails,
   },
-  // {
-  //   path: '/category',
-  //   component: Category,
-  // },
+  {
+    path: '/category',
+    component: Category,
+  },
   {
     path: '/customers',
     component: Customers,

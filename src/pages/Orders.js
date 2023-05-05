@@ -44,10 +44,11 @@ const Orders = () => {
     dataTable,
     serviceData,
     handleSubmitOrder,
-  } = useFilter(data);
+  } = useFilter(data?.data||[]);
+  console.log(dataTable)
   return (
     <>
-      <PageTitle>Orders</PageTitle>
+      <PageTitle>Danh sách đơn hàng</PageTitle>
       {/* <MainDrawer>
         <OrderDrawer />
       </MainDrawer> */}
@@ -94,14 +95,14 @@ const Orders = () => {
               </Select>
             </div>
             <div className='flex'>
-              {/* <CSVDownloader data={orderData} filename={'orders'}>
-                <button className="flex items-center justify-center text-sm leading-5 h-12 w-full text-center transition-colors duration-150 font-medium focus:outline-none px-6 py-2 rounded-md text-white bg-green-500 border border-transparent active:bg-green-600 hover:bg-green-600 focus:ring focus:ring-purple-300">
-                  Downloaed all Orders
-                  <span classNam="ml-2 text-base">
+              <CSVDownloader data={dataTable} filename={'orders'}>
+                <button style={{justifyContent:'space-between'}} className="flex items-center justify-center text-sm leading-5 h-12 w-full text-center transition-colors duration-150 font-medium focus:outline-none px-6 py-2 rounded-md text-white bg-green-500 border border-transparent active:bg-green-600 hover:bg-green-600 focus:ring focus:ring-purple-300">
+                  Tải xuống danh sách đơn hàng
+                  <span classNam="ml-2 text-base" style={{marginLeft:"5px"}}>
                     <IoCloudDownloadOutline />
                   </span>
                 </button>
-              </CSVDownloader> */}
+              </CSVDownloader>
               <Button onClick={toggleDrawer} className="hidden w-full md:w-56 lg:w-56 xl:w-56 rounded-md h-12">
                 <span className="mr-3">
                   <FiPlus />
@@ -120,12 +121,12 @@ const Orders = () => {
           <Table>
             <TableHeader>
               <tr>
-                <TableCell>SR NO</TableCell>
-                <TableCell>Time</TableCell>
-                <TableCell>Shipping Address</TableCell>
-                <TableCell>Phone</TableCell>
-                <TableCell>Method</TableCell>
-                <TableCell>Amount</TableCell>
+                <TableCell>ID</TableCell>
+                <TableCell>Tên khách hàng</TableCell>
+                <TableCell>Số điện thoại</TableCell>
+                <TableCell>Địa chỉ</TableCell>
+                <TableCell>Ngày đặt hàng</TableCell>
+                <TableCell>Thành tiền</TableCell>
                 <TableCell className="text-center">Status</TableCell>
                 <TableCell className="text-center">Action</TableCell>
                 <TableCell className="text-right">Invoice</TableCell>

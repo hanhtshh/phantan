@@ -6,11 +6,11 @@ const CategoryServices = {
   },
 
   getCategoryById(id) {
-    return requests.get(`/category/${id}`);
+    return requests.get(`/category/detail/${id}`);
   },
 
   addCategory(body) {
-    return requests.post('/category/add', body);
+    return requests.post('/category', body);
   },
 
   updateCategory(id, body) {

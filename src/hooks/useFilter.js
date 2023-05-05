@@ -8,6 +8,15 @@ import { useLocation } from 'react-router-dom';
 import ProductServices from '../services/ProductServices';
 import { notifyError, notifySuccess } from '../utils/toast';
 
+const calcDate = (dateString) => {
+
+  const dateParts = dateString.split("/");
+
+  // month is 0-based, that's why we need dataParts[1] - 1
+  const dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
+  return dateObject
+}
+
 const useFilter = (data) => {
   const [filter, setFilter] = useState('');
   const [sortedField, setSortedField] = useState('');
@@ -43,49 +52,51 @@ const useFilter = (data) => {
     date.setDate(date.getDate() - time);
     let services = data;
 
-    if (location.pathname === '/dashboard') {
+    if (location.pathname === '/dashboard' && services?.length>0) {
+
       const orderPending = services.filter(
-        (statusP) => statusP.status === 'Pending'
+        (statusP) => statusP?.status === 'Pending'
       );
       setPending(orderPending);
 
       const orderProcessing = services.filter(
-        (statusO) => statusO.status === 'Processing'
+        (statusO) => statusO?.status === 'Processing'
       );
       setProcessing(orderProcessing);
 
       const orderDelivered = services.filter(
-        (statusD) => statusD.status === 'Delivered'
+        (statusD) => statusD?.status === 'Delivered'
       );
       setDelivered(orderDelivered);
 
       //daily total order calculation
       const todayServices = services.filter((order) =>
-        dayjs(order.createdAt).isToday()
+        dayjs(calcDate(order.oder_date)).isToday()
       );
+      console.log(todayServices)
       const todayOrder = todayServices.reduce(
-        (preValue, currentValue) => preValue + currentValue.total,
+        (preValue, currentValue) => preValue + currentValue.cost,
         0
       );
       setTodayOrder(todayOrder);
 
       //monthly order calculation
       const monthlyServices = services.filter((order) =>
-        dayjs(order.createdAt).isBetween(
+        dayjs(calcDate(order.oder_date)).isBetween(
           new Date().setDate(new Date().getDate() - 30),
           new Date()
         )
       );
 
       const monthlyOrder = monthlyServices.reduce(
-        (preValue, currentValue) => preValue + currentValue.total,
+        (preValue, currentValue) => preValue + currentValue.cost,
         0
       );
       setMonthlyOrder(monthlyOrder);
 
-      //total order calculation
+      // //total order calculation
       const totalOrder = services.reduce(
-        (preValue, currentValue) => preValue + currentValue.total,
+        (preValue, currentValue) => preValue + currentValue.cost,
         0
       );
       setTotalOrder(totalOrder);
@@ -116,12 +127,6 @@ const useFilter = (data) => {
       );
     }
 
-    //admin Filtering
-
-    if (role) {
-      services = services.filter((staff) => staff.role === role);
-    }
-
     //User and Admin filtering
     if (searchUser) {
       services = services.filter(
@@ -132,15 +137,6 @@ const useFilter = (data) => {
       );
     }
 
-    //Coupon filtering
-
-    if (searchCoupon) {
-      services = services.filter(
-        (search) =>
-          search.title.toLowerCase().includes(searchCoupon.toLowerCase()) ||
-          search.couponCode.toLowerCase().includes(searchCoupon.toLowerCase())
-      );
-    }
 
     // order filtering
     if (status) {
@@ -152,12 +148,6 @@ const useFilter = (data) => {
       );
     }
 
-    if (time) {
-      services = services.filter((order) =>
-        dayjs(order.createdAt).isBetween(date, new Date())
-      );
-    }
-
     return services;
   }, [
     filter,
@@ -165,12 +155,8 @@ const useFilter = (data) => {
     data,
     searchText,
     searchUser,
-    searchCoupon,
     searchOrder,
-    categoryType,
     status,
-    role,
-    time,
     location,
   ]);
 

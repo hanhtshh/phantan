@@ -16,30 +16,26 @@ const OrderTable = ({ orders }) => {
         {orders?.map((order, i) => (
           <TableRow key={i + 1}>
             <TableCell>
-              <span className="font-semibold uppercase text-xs">{i + 1}</span>
+              <span className="text-sm">{order._id.substring(20, 25)}</span>
             </TableCell>
             <TableCell>
-              <span className="text-sm">
-                {dayjs(order.createdAt).format('MMM D, YYYY')}
-              </span>
+              <span className="text-sm">{order.customer?.name}</span>
+            </TableCell>
+            <TableCell>
+              <span className="text-sm">{order.telephone}</span>
             </TableCell>
 
             <TableCell>
-              <span className="text-sm">{order.address.substring(0, 25)}</span>
+              <span className="text-sm">{order.address}</span>
             </TableCell>
             <TableCell>
-              {' '}
-              <span className="text-sm">{order.contact}</span>{' '}
-            </TableCell>
-            <TableCell>
-              <span className="text-sm font-semibold">
-                {order.paymentMethod}
-              </span>
+              <span className="text-sm">{order.oder_date}</span>
             </TableCell>
             <TableCell>
               {' '}
               <span className="text-sm font-semibold">
-              ₹ {Math.round(order.total)}.00
+              {Math.round(order.cost)}
+              vnđ
               </span>{' '}
             </TableCell>
             <TableCell className="text-center text-xs">

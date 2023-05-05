@@ -24,6 +24,7 @@ import { barOptions, doughnutOptions } from '../utils/chartsData';
 
 const Dashboard = () => {
   const { data, loading } = useAsync(OrderServices.getAllOrders);
+  console.log(data)
 
   const {
     handleChangePage,
@@ -36,7 +37,7 @@ const Dashboard = () => {
     todayOrder,
     monthlyOrder,
     totalOrder,
-  } = useFilter(data);
+  } = useFilter( data?.data || []);
 
   return (
     <>
@@ -44,19 +45,19 @@ const Dashboard = () => {
 
       <div className="grid gap-4 mb-8 md:grid-cols-3 xl:grid-cols-3">
         <CardItemTwo
-          title="Today Order"
+          title="Doanh thu hôm nay"
           Icon={ImStack}
           price={todayOrder}
           className="text-white dark:text-green-100 bg-teal-500"
         />
         <CardItemTwo
-          title="This Month"
+          title="Doanh thu tháng này"
           Icon={FiShoppingCart}
           price={monthlyOrder}
           className="text-white dark:text-green-100 bg-blue-500"
         />
         <CardItemTwo
-          title="Total Order"
+          title="Tổng doanh thu"
           Icon={ImCreditCard}
           price={totalOrder}
           className="text-white dark:text-green-100 bg-green-500"
@@ -67,7 +68,7 @@ const Dashboard = () => {
         <CardItem
           title="Total Order"
           Icon={FiShoppingCart}
-          quantity={data.length}
+          quantity={dataTable.length}
           className="text-orange-600 dark:text-orange-100 bg-orange-100 dark:bg-orange-500"
         />
         <CardItem
@@ -99,19 +100,19 @@ const Dashboard = () => {
         </ChartCard>
       </div>
 
-      <PageTitle>Recent Order</PageTitle>
+      <PageTitle>Đơn hàng gần nhất</PageTitle>
       {loading && <Loading loading={loading} />}
       {dataTable && !loading && (
         <TableContainer className="mb-8">
           <Table>
             <TableHeader>
               <tr>
-                <TableCell>Order Time</TableCell>
-                <TableCell>Delivery Address</TableCell>
-                <TableCell>Phone</TableCell>
-                <TableCell>Payment method</TableCell>
-                <TableCell>Order amount</TableCell>
-                <TableCell>Status</TableCell>
+                <TableCell>Tên khách hàng</TableCell>
+                <TableCell>Ngày đặt hàng</TableCell>
+                <TableCell>Số điện thoại</TableCell>
+                <TableCell>Địa chỉ</TableCell>
+                <TableCell>Giá trị đơn hàng</TableCell>
+                <TableCell>Trạng thái</TableCell>
               </tr>
             </TableHeader>
             <OrderTable orders={dataTable} />

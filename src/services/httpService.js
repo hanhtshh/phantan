@@ -21,7 +21,7 @@ instance.interceptors.request.use(function (config) {
   return {
     ...config,
     headers: {
-      authorization: adminInfo ? `Bearer ${adminInfo.token}` : null,
+      authorization: adminInfo ? `${adminInfo.token}` : null,
     },
   };
 });
