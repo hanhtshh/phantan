@@ -13,12 +13,12 @@ const OrderServices = {
   },
 
   getOrderById(id, body) {
-    return requests.get(`/orders/${id}`, body);
+    return requests.get(`/oder/get-by-id/${id}`, body);
   },
 
   updateOrder(id, body, headers) {
     console.log(body);
-    return requests.put(`/orders/${id}`, body, headers);
+    return requests.put(`/oder/${id}`, body, headers);
   },
 
   deleteOrder(id) {

@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom';
 import ProductServices from '../services/ProductServices';
 import { notifyError, notifySuccess } from '../utils/toast';
 
-const calcDate = (dateString) => {
+export const calcDate = (dateString) => {
 
   const dateParts = dateString.split("/");
 
