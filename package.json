@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "this is Dashtar-admin built with react.js and tailwindcss",
   "private": true,
+  "engines": {
+    "node": "16.17.0"
+  },
   "dependencies": {
     "@pathofdev/react-tag-input": "^1.0.7",
     "@react-pdf/renderer": "^2.1.1",
