@@ -1,8 +1,8 @@
 export const doughnutLegends = [
-  { title: 'Fresh Vegetable', color: 'bg-green-500' },
-  { title: 'Cooking Essentials', color: 'bg-blue-500' },
-  { title: 'Drinks', color: 'bg-orange-500' },
-  { title: 'Organic Food', color: 'bg-indigo-500' },
+  { title: 'Đã giao hàng', color: 'bg-green-500' },
+  { title: 'Đã xử lý', color: 'bg-blue-500' },
+  { title: 'Đã hủy', color: 'bg-orange-500' },
+  { title: 'Đang giao hàng', color: 'bg-indigo-500' },
 ];
 
 export const lineLegends = [
@@ -11,10 +11,10 @@ export const lineLegends = [
 ];
 
 export const barLegends = [
-  { title: 'Fresh Vegetable', color: 'bg-green-500' },
-  { title: 'Cooking Essentials', color: 'bg-blue-500' },
-  { title: 'Drinks', color: 'bg-orange-500' },
-  { title: 'Organic Food', color: 'bg-indigo-500' },
+  { title: 'Đã giao hàng', color: 'bg-green-500' },
+  { title: 'Đã xử lý', color: 'bg-blue-500' },
+  { title: 'Đã hủy', color: 'bg-orange-500' },
+  { title: 'Đang giao hàng', color: 'bg-indigo-500' },
 ];
 
 export const pieLegends = [
@@ -35,7 +35,7 @@ export const doughnutOptions = {
         label: 'Dataset 1',
       },
     ],
-    labels: ['Fresh Vegetable', 'Cooking Essentials', 'Drinks', 'Organic Food'],
+    labels: ['Đã giao hàng', 'Đã xử lý', 'Đã hủy', 'Đang giao hàng'],
   },
   options: {
     responsive: true,
@@ -111,28 +111,28 @@ export const barOptions = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [
       {
-        label: 'Fresh Vegetable',
+        label: 'Đã giao hàng',
         backgroundColor: '#10B981',
         // borderColor: window.chartColors.red,
         borderWidth: 1,
         data: [15, 35, 45, 40, 70, 85, 90],
       },
       {
-        label: 'Cooking Essentials',
+        label: 'Đã xử lý',
         backgroundColor: '#3B82F6',
         // borderColor: window.chartColors.blue,
         borderWidth: 1,
         data: [5, 25, 50, 35, 24, 32, 84],
       },
       {
-        label: 'Drinks',
+        label: 'Đã hủy',
         backgroundColor: '#F97316',
         // borderColor: window.chartColors.red,
         borderWidth: 1,
         data: [10, 45, 52, 74, 33, 50, 70],
       },
       {
-        label: 'Organic Food',
+        label: 'Đang giao hàng',
         backgroundColor: '#0EA5E9',
         // borderColor: window.chartColors.red,
         borderWidth: 1,

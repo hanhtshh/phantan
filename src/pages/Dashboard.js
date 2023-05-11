@@ -37,7 +37,7 @@ const Dashboard = () => {
     todayOrder,
     monthlyOrder,
     totalOrder,
-  } = useFilter( data?.data || []);
+  } = useFilter(data?.data || []);
 
   return (
     <>
@@ -92,10 +92,10 @@ const Dashboard = () => {
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 my-8">
-        <ChartCard title="Conversions This Year">
+        <ChartCard title="Thống kê đơn hàng trong năm">
           <Bar {...barOptions} />
         </ChartCard>
-        <ChartCard title="Top Revenue Product">
+        <ChartCard title="Thống kê đơn hàng trong tháng">
           <Doughnut {...doughnutOptions} className="chart" />
         </ChartCard>
       </div>

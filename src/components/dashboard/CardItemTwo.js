@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardBody } from '@windmill/react-ui';
+import { formatVND } from '../../services/OrderServices';
 
 const CardItemTwo = ({ title, Icon, className, price }) => {
   return (
@@ -16,7 +17,7 @@ const CardItemTwo = ({ title, Icon, className, price }) => {
               {title}
             </p>
             <p className="text-3xl font-bold leading-none text-gray-50 dark:text-gray-50">
-             {price}
+              {formatVND(price)}
             </p>
           </div>
         </CardBody>

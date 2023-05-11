@@ -44,7 +44,7 @@ const Orders = () => {
     dataTable,
     serviceData,
     handleSubmitOrder,
-  } = useFilter(data?.data||[]);
+  } = useFilter(data?.data || []);
   console.log(dataTable)
   return (
     <>
@@ -96,9 +96,9 @@ const Orders = () => {
             </div>
             <div className='flex'>
               <CSVDownloader data={dataTable} filename={'orders'}>
-                <button style={{justifyContent:'space-between'}} className="flex items-center justify-center text-sm leading-5 h-12 w-full text-center transition-colors duration-150 font-medium focus:outline-none px-6 py-2 rounded-md text-white bg-green-500 border border-transparent active:bg-green-600 hover:bg-green-600 focus:ring focus:ring-purple-300">
+                <button style={{ justifyContent: 'space-between' }} className="flex items-center justify-center text-sm leading-5 h-12 w-full text-center transition-colors duration-150 font-medium focus:outline-none px-6 py-2 rounded-md text-white bg-green-500 border border-transparent active:bg-green-600 hover:bg-green-600 focus:ring focus:ring-purple-300">
                   Tải xuống danh sách đơn hàng
-                  <span classNam="ml-2 text-base" style={{marginLeft:"5px"}}>
+                  <span classNam="ml-2 text-base" style={{ marginLeft: "5px" }}>
                     <IoCloudDownloadOutline />
                   </span>
                 </button>
@@ -127,6 +127,7 @@ const Orders = () => {
                 <TableCell>Địa chỉ</TableCell>
                 <TableCell>Ngày đặt hàng</TableCell>
                 <TableCell>Thành tiền</TableCell>
+                <TableCell className="text-center">Phương thức</TableCell>
                 <TableCell className="text-center">Status</TableCell>
                 <TableCell className="text-center">Action</TableCell>
                 <TableCell className="text-right">Invoice</TableCell>

@@ -9,7 +9,8 @@ import {
 } from '@react-pdf/renderer';
 import dayjs from 'dayjs';
 
-import logoLight from '../../assets/img/logo/fruitflix-logo.png';
+import logoLight from '../../assets/img/logo/clothes-logo.png';
+import { formatVND } from '../../services/OrderServices';
 
 Font.register({
   family: 'Open Sans',
@@ -154,9 +155,9 @@ const InvoiceForDownload = ({ data }) => {
             <View>
               <Image style={styles.logo} src={logoLight} />
               <Text style={styles.info}>
-                Cecilia Chapman, 561-4535 Nulla LA,
+                Clothes Shop, 110 Trần Phú
               </Text>
-              <Text style={styles.info}> United States 96522</Text>
+              <Text style={styles.info}> Hà Đông, Hà Nội</Text>
             </View>
           </View>
 
@@ -232,7 +233,7 @@ const InvoiceForDownload = ({ data }) => {
 
                 <View style={styles.tableCol}>
                   <Text style={styles.tableCell}>
-                    <span style={styles.amount}>{item.price}</span>{' '}
+                    <span style={styles.amount}>{formatVND(item.price)}</span>{' '}
                   </Text>
                 </View>
               </View>
@@ -243,7 +244,7 @@ const InvoiceForDownload = ({ data }) => {
 
             <View>
               <Text style={styles.title}>Tổng giá trị đơn hàng</Text>
-              <Text style={styles.amount}>{data?.cost}</Text>
+              <Text style={styles.amount}>{formatVND(data?.cost)}</Text>
             </View>
           </View>
         </Page>

@@ -18,8 +18,8 @@ import Status from '../components/table/Status';
 import OrderServices from '../services/OrderServices';
 import Invoice from '../components/invoice/Invoice';
 import Loading from '../components/preloader/Loading';
-import logoDark from '../assets/img/logo/fruitflix-logo.png';
-import logoLight from '../assets/img/logo/fruitflix-logo.png';
+import logoDark from '../assets/img/logo/clothes-logo.png';
+import logoLight from '../assets/img/logo/clothes-logo.png';
 import PageTitle from '../components/Typography/PageTitle';
 import InvoiceForDownload from '../components/invoice/InvoiceForDownload';
 import { calcDate } from '../hooks/useFilter';
@@ -62,7 +62,7 @@ const OrderInvoice = () => {
                   )}
                 </h2>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                  Cecilia Chapman, 561-4535 Nulla LA, <br /> United States 96522{' '}
+                Clothes Shop, 110 Trần Phú, <br /> Hà Đông, Hà Nội{' '}
                 </p>
               </div>
             </div>
@@ -123,7 +123,7 @@ const OrderInvoice = () => {
       </div>
       {!loading && (
         <div className="mb-4 mt-3 flex justify-between">
-          <PDFDownloadLink
+          {/* <PDFDownloadLink
             document={<InvoiceForDownload data={data.data} />}
             fileName="Invoice"
           >
@@ -139,7 +139,7 @@ const OrderInvoice = () => {
                 </button>
               )
             }
-          </PDFDownloadLink>
+          </PDFDownloadLink> */}
 
           <ReactToPrint
             trigger={() => (

@@ -27,3 +27,7 @@ const OrderServices = {
 };
 
 export default OrderServices;
+
+export const formatVND = (price) => {
+  return `${price.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")}₫`
+}

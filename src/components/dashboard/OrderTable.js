@@ -2,6 +2,7 @@ import React from 'react';
 import * as dayjs from 'dayjs';
 import { TableCell, TableBody, TableRow } from '@windmill/react-ui';
 import Status from '../table/Status';
+import { formatVND } from '../../services/OrderServices';
 
 const OrderTable = ({ orders }) => {
   return (
@@ -11,7 +12,7 @@ const OrderTable = ({ orders }) => {
           <TableRow key={order._id}>
             <TableCell>
               <span className="text-sm">
-               {order?.customer?.name}
+                {order?.customer?.name}
               </span>
             </TableCell>
 
@@ -30,7 +31,7 @@ const OrderTable = ({ orders }) => {
             <TableCell>
               {' '}
               <span className="text-sm font-semibold">
-               {order.cost}
+                {formatVND(order.cost)}
               </span>{' '}
             </TableCell>
             <TableCell>

@@ -3,8 +3,8 @@ import { NavLink, Route } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { Button, WindmillContext } from '@windmill/react-ui';
 import { IoLogOutOutline } from 'react-icons/io5';
-import logoDark from '../../assets/img/logo/fruitflix-logo.png';
-import logoLight from '../../assets/img/logo/fruitflix-logo.png';
+import logoDark from '../../assets/img/logo/clothes-logo.png';
+import logoLight from '../../assets/img/logo/clothes-logo.png';
 
 import sidebar from '../../routes/sidebar';
 import { AdminContext } from '../../context/AdminContext';

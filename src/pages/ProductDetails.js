@@ -9,6 +9,7 @@ import Loading from '../components/preloader/Loading';
 import PageTitle from '../components/Typography/PageTitle';
 import ProductServices from '../services/ProductServices';
 import ProductDrawer from '../components/drawer/ProductDrawer';
+import { formatVND } from '../services/OrderServices';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -56,10 +57,10 @@ const ProductDetails = () => {
               </div>
               <div className="font-serif product-price font-bold dark:text-gray-400">
                 <span className="inline-block text-2xl">
-                ₹{data.price}
+                  ₹{formatVND(data?.cost)}
                   {data.discount >= 1 && (
                     <del className="text-gray-400 dark:text-gray-500 text-lg pl-2">
-                      ₹{data.originalPrice}
+                      ₹{formatVND(data?.originalPrice)}
                     </del>
                   )}
                 </span>

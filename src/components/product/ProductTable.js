@@ -16,6 +16,7 @@ import ProductDrawer from '../drawer/ProductDrawer';
 import ShowHideButton from '../table/ShowHideButton';
 import EditDeleteButton from '../table/EditDeleteButton';
 import useToggleDrawer from '../../hooks/useToggleDrawer';
+import { formatVND } from '../../services/OrderServices';
 
 const ProductTable = ({ products }) => {
   const { serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
@@ -52,10 +53,10 @@ const ProductTable = ({ products }) => {
             </TableCell>
 
             <TableCell>
-              <span className="text-sm font-semibold">{product?.price}vnđ</span>
+              <span className="text-sm font-semibold">{formatVND(product?.price)}</span>
             </TableCell>
             <TableCell>
-              <span className="text-sm font-semibold">{product?.sale}vnđ</span>
+              <span className="text-sm font-semibold">{formatVND(product?.sale)}</span>
             </TableCell>
             <TableCell>
               <EditDeleteButton

@@ -8,6 +8,7 @@ import { FiEye } from 'react-icons/fi';
 import Tooltip from '../tooltip/Tooltip';
 import SelectStatus from '../form/SelectStatus';
 import SelectDeliveryBoy from '../form/SelectDeliveryBoy';
+import { formatVND } from '../../services/OrderServices';
 
 const OrderTable = ({ orders }) => {
   return (
@@ -34,16 +35,21 @@ const OrderTable = ({ orders }) => {
             <TableCell>
               {' '}
               <span className="text-sm font-semibold">
-              {Math.round(order.cost)}
-              vnđ
+                {formatVND(order?.cost)}
+
               </span>{' '}
+            </TableCell>
+            <TableCell className="text-center">
+              {order?.paypalStatus ? "Paypal" : "COD"}
             </TableCell>
             <TableCell className="text-center text-xs">
               <Status status={order.status} />
             </TableCell>
+
             <TableCell className="text-center">
               <SelectStatus id={order._id} />
             </TableCell>
+
             <TableCell className="text-right flex justify-end">
               <div className="p-2 cursor-pointer text-gray-400 hover:text-green-600">
                 {' '}
