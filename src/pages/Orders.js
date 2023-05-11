@@ -34,6 +34,7 @@ import { FiPlus } from 'react-icons/fi';
 const Orders = () => {
   const { data, loading } = useAsync(OrderServices.getAllOrders);
   const { toggleDrawer } = useContext(SidebarContext);
+  console.log(data);
   const {
     orderRef,
     setStatus,

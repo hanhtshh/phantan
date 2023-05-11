@@ -42,7 +42,7 @@ const useLoginSubmit = () => {
             setLoading(false);
             notifySuccess('Login Success!');
             dispatch({ type: 'USER_LOGIN', payload: res });
-            Cookies.set('adminInfo', JSON.stringify(res));
+            Cookies.set('adminInfo', JSON.stringify({ ...res?.data, token: res?.token }));
             history.replace('/');
           }
         })
