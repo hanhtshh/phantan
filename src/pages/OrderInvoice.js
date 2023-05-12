@@ -49,7 +49,7 @@ const OrderInvoice = () => {
                   Trạng thái đơn hàng:{' '}
                   <span className="pl-2 font-medium text-xs capitalize">
                     {' '}
-                    <Status status={data.data.status} />
+                    <Status status={data.data?.status} />
                   </span>
                 </p>
               </h1>

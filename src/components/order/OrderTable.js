@@ -43,7 +43,7 @@ const OrderTable = ({ orders }) => {
               {order?.paypalStatus ? "Paypal" : "COD"}
             </TableCell>
             <TableCell className="text-center text-xs">
-              <Status status={order.status} />
+              <Status status={order?.status} />
             </TableCell>
 
             <TableCell className="text-center">

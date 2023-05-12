@@ -77,10 +77,10 @@ const Products = () => {
                 className="absolute right-0 top-0 mt-5 mr-1"
               ></button>
             </div>
-            <div className="hidden flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
+            {/* <div className="hidden flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
               <SelectCategory setFilter={setFilter} />
-            </div>
-            <div className="hidden flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
+            </div> */}
+            {/* <div className="hidden flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
               <Select
                 onChange={(e) => setSortedField(e.target.value)}
                 className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"
@@ -91,7 +91,7 @@ const Products = () => {
                 <option value="Low">Thấp lên Cao</option>
                 <option value="High">Cao xuống Thấp</option>
               </Select>
-            </div>
+            </div> */}
             <div className="w-full flex justify-end">
               <Button onClick={toggleDrawer} className="w-full md:w-56 lg:w-56 xl:w-56 rounded-md h-12">
                 <span className="mr-3">

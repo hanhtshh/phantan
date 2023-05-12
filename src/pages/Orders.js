@@ -38,6 +38,7 @@ const Orders = () => {
   const {
     orderRef,
     setStatus,
+    setFilter,
     setTime,
     handleChangePage,
     totalResults,
@@ -63,8 +64,9 @@ const Orders = () => {
               <Input
                 ref={orderRef}
                 type="search"
-                className="hidden border h-12 text-sm focus:outline-none w-full bg-gray-100 border-transparent focus:bg-white"
-                placeholder="Search by phone"
+                onChange={e => setFilter(e.target.value)}
+                className="border h-12 text-sm focus:outline-none w-full bg-gray-100 border-transparent focus:bg-white"
+                placeholder="Tìm kiếm theo số điện thoại"
               />
             </div>
             <div>

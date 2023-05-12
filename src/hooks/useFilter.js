@@ -52,7 +52,7 @@ const useFilter = (data) => {
     date.setDate(date.getDate() - time);
     let services = data;
 
-    if (location.pathname === '/dashboard' && services?.length>0) {
+    if (location.pathname === '/dashboard' && services?.length > 0) {
 
       const orderPending = services.filter(
         (statusP) => statusP?.status === 'Pending'
@@ -105,7 +105,7 @@ const useFilter = (data) => {
     //products filtering
 
     if (filter) {
-      services = services.filter((item) => item.parent === filter);
+      services = services.filter((order) => order?.customer?.telephone?.includes(filter));
     }
 
     if (sortedField === 'Low') {
