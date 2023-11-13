@@ -132,7 +132,7 @@ const OrderDrawer = ({ id }) => {
                   <option value="" defaultValue hidden>
                     Select parent category
                   </option>
-                  <ParentCategory />
+                  {/* <ParentCategory /> */}
                 </Select>
                 <Error errorName={errors.parent} />
               </div>

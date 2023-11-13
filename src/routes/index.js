@@ -7,6 +7,8 @@ const ProductDetails = lazy(() => import('../pages/ProductDetails'));
 const Category = lazy(() => import('../pages/Category'));
 const Staff = lazy(() => import('../pages/Staff'));
 const Customers = lazy(() => import('../pages/Customers'));
+const CustomersList = lazy(() => import('../pages/CustomersList'));
+const MoviesList = lazy(() => import('../pages/MoviesList'));
 const CustomerOrder = lazy(() => import('../pages/CustomerOrder'));
 const Orders = lazy(() => import('../pages/Orders'));
 const OrderInvoice = lazy(() => import('../pages/OrderInvoice'));
@@ -29,7 +31,7 @@ const EditProfile = lazy(() => import('../pages/EditProfile'));
 const routes = [
   {
     path: '/dashboard',
-    component: Dashboard,
+    component: CustomersList,
   },
   {
     path: '/products',
@@ -75,6 +77,13 @@ const routes = [
   {
     path: '/edit-profile',
     component: EditProfile,
+  },
+  {
+    path: '/customers-list',
+    component: CustomersList,
+  },  {
+    path: '/movies-list',
+    component: MoviesList,
   },
 ];
 

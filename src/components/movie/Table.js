@@ -1,14 +1,13 @@
 import React from 'react';
-import { TableBody, TableRow, TableCell, Avatar } from '@windmill/react-ui';
+import { TableBody, TableRow, TableCell } from '@windmill/react-ui';
 
 import MainModal from '../modal/MainModal';
 import MainDrawer from '../drawer/MainDrawer';
-import ShowHideButton from '../table/ShowHideButton';
 import CategoryDrawer from '../drawer/CategoryDrawer';
 import useToggleDrawer from '../../hooks/useToggleDrawer';
-import EditDeleteButton from '../table/EditDeleteButton';
 
-const CategoryTable = ({ categories }) => {
+
+const CustomTable = ({ categories }) => {
   const { serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
 
   return (
@@ -22,12 +21,10 @@ const CategoryTable = ({ categories }) => {
         {categories?.map((parent) => (
           <TableRow key={parent._id}>
             <TableCell className="font-semibold uppercase text-xs">
-              {parent.maKh}
+              {parent.maChieu}
             </TableCell>
-            <TableCell className="text-sm ">{parent.ten}</TableCell>
-            <TableCell className="text-sm ">{parent.diaChi}</TableCell>
-            <TableCell className="text-sm ">{parent.ngaySinh}</TableCell>
-            <TableCell className="text-sm ">{parent.sdt}</TableCell>
+            <TableCell className="text-sm ">{parent.name}</TableCell>
+            <TableCell className="text-sm ">{parent.name}</TableCell>
           </TableRow>
         ))}
       </TableBody>
@@ -35,4 +32,4 @@ const CategoryTable = ({ categories }) => {
   );
 };
 
-export default CategoryTable;
+export default CustomTable;

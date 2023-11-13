@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 const instance = axios.create({
-  baseURL: `https://clothes-eswc.onrender.com`,
+  baseURL: `https://0ff5-103-156-42-98.ngrok-free.app`,
   timeout: 500000,
   headers: {
     Accept: 'application/json',
@@ -26,7 +26,12 @@ instance.interceptors.request.use(function (config) {
   };
 });
 
-const responseBody = (response) => response.data;
+const responseBody = (response) => {
+  if (response?.data?.data) {
+    return response.data.data
+  }
+  return response
+};
 
 const requests = {
   get: (url, body, headers) =>

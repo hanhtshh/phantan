@@ -31,8 +31,8 @@ const CategoryDrawer = ({ id }) => {
           />
         ) : (
           <Title
-            title="Thêm danh mục sản phẩm"
-            description="Thêm thông tin danh mục sản phẩm tại đây"
+            title="Thêm khách hàng"
+            description="Thêm thông tin khách hàng tại đây"
           />
         )}
       </div>
@@ -42,32 +42,92 @@ const CategoryDrawer = ({ id }) => {
           onSubmit();
         }}>
           <div className="p-6 flex-grow scrollbar-hide w-full max-h-full pb-40">
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Category Icon" />
               <div className="col-span-8 sm:col-span-4">
                 <UploaderSingle imageUrl={imageUrl} setImageUrl={setImageUrl} />
               </div>
-            </div>
+            </div> */}
 
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Tên danh mục" />
+              <LabelArea label="Mã khách hàng" />
               <div className="col-span-8 sm:col-span-4">
                 <InputArea
                   register={register}
                   required="false"
-                  label="Tên danh mục"
+                  label="Mã khách hàng"
                   name="name"
                   type="text"
-                  placeholder="Tên danh mục"
+                  placeholder="Mã khách hàng"
+                />
+                <Error errorName={errors.category} />
+              </div>
+            </div>
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Tên khách hàng" />
+              <div className="col-span-8 sm:col-span-4">
+                <InputArea
+                  register={register}
+                  required="false"
+                  label="Tên khách hàng"
+                  name="name"
+                  type="text"
+                  placeholder="Tên khách hàng"
+                />
+                <Error errorName={errors.category} />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Địa chỉ" />
+              <div className="col-span-8 sm:col-span-4">
+                <InputArea
+                  register={register}
+                  required="false"
+                  label="Địa chỉ"
+                  name="name"
+                  type="text"
+                  placeholder="Địa chỉ"
+                />
+                <Error errorName={errors.category} />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Ngày sinh" />
+              <div className="col-span-8 sm:col-span-4">
+                <InputArea
+                  register={register}
+                  required="false"
+                  label="Ngày sinh"
+                  name="name"
+                  type="text"
+                  placeholder="Ngày sinh"
+                />
+                <Error errorName={errors.category} />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Số điện thoại" />
+              <div className="col-span-8 sm:col-span-4">
+                <InputArea
+                  register={register}
+                  required="false"
+                  label="Số điện thoại"
+                  name="name"
+                  type="text"
+                  placeholder="Số điện thoại"
                 />
                 <Error errorName={errors.category} />
               </div>
             </div>
 
 
+
           </div>
 
-          <DrawerButton id={id} title="Category" />
+          <DrawerButton id={id} title="khách hàng" />
         </form>
       </Scrollbars>
     </>

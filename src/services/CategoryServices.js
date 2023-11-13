@@ -2,7 +2,7 @@ import requests from './httpService';
 
 const CategoryServices = {
   getAllCategory() {
-    return requests.get('/category');
+    return requests.get('/api/khach-hang/search-kh-by-ten?ten=');
   },
 
   getCategoryById(id) {

@@ -11,7 +11,7 @@ const SelectOption = ({ register, name, label}) => {
         //   required: `${label} is required!`,
         // })}
       >
-        <option value="" defaultValue hidden>Select type</option>
+        <option value="" defaultValue hidden>{label}</option>
         <option value="Grocery">Grocery</option>
         <option value="Foods">Foods</option>
         <option value="Cloths">Cloths</option>

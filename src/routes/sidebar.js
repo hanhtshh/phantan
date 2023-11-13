@@ -16,30 +16,30 @@ import {
  * `routes/index.js`
  */
 const sidebar = [
+  // {
+  //   path: '/dashboard', // the url
+  //   icon: FiGrid, // icon
+  //   name: 'Dashboard', // name that appear in Sidebar
+  // },
+  // {
+  //   path: '/products',
+  //   icon: FiShoppingBag,
+  //   name: 'Products',
+  // },
   {
-    path: '/dashboard', // the url
-    icon: FiGrid, // icon
-    name: 'Dashboard', // name that appear in Sidebar
-  },
-  {
-    path: '/products',
-    icon: FiShoppingBag,
-    name: 'Products',
-  },
-  {
-    path: '/category',
+    path: '/customers-list',
     icon: FiList,
-    name: 'Category',
+    name: 'Danh sách khách hàng',
   },
+  // {
+  //   path: '/customers',
+  //   icon: FiUsers,
+  //   name: 'Customers',
+  // },
   {
-    path: '/customers',
-    icon: FiUsers,
-    name: 'Customers',
-  },
-  {
-    path: '/orders',
+    path: '/movies-list',
     icon: FiCompass,
-    name: 'Orders',
+    name: 'Danh sách phim chiếu',
   },
   // {
   //   path: '/coupons',
@@ -51,11 +51,11 @@ const sidebar = [
   //   icon: FiUser,
   //   name: 'Our Staff',
   // },
-  {
-    path: '/setting',
-    icon: FiSettings,
-    name: 'Setting',
-  },
+  // {
+  //   path: '/setting',
+  //   icon: FiSettings,
+  //   name: 'Setting',
+  // },
 ];
 
 export default sidebar;

@@ -2,7 +2,7 @@ import requests from './httpService';
 
 const OrderServices = {
   getAllOrders(body, headers) {
-    return requests.get('/oder/all', body, headers);
+    return requests.get('/api/lich-chieu/find?ten=', body, headers);
   },
   getAvailableOrder(body, headers) {
     return requests.get('/orders/available', body, headers);

@@ -13,13 +13,13 @@ const DrawerButton = ({ id, title }) => {
             className="h-12 bg-white w-full text-red-500 hover:bg-red-50 hover:border-red-100 hover:text-red-600 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-500 dark:hover:bg-gray-800 dark:hover:text-red-700"
             layout="outline"
           >
-            Cancel
+            Huỷ
           </Button>
         </div>
         <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
           <Button type="submit" className="w-full h-12">
             {" "}
-            {id ? <span>Update {title}</span> : <span>Add {title}</span>}
+            {id ? <span>Cập nhật {title}</span> : <span>Thêm {title}</span>}
           </Button>
         </div>
       </div>

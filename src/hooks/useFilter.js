@@ -70,9 +70,7 @@ const useFilter = (data) => {
       setDelivered(orderDelivered);
 
       //daily total order calculation
-      const todayServices = services.filter((order) =>
-        dayjs(calcDate(order.oder_date)).isToday()
-      );
+      const todayServices = []
       console.log(todayServices)
       const todayOrder = todayServices.reduce(
         (preValue, currentValue) => preValue + currentValue.cost,
@@ -81,12 +79,7 @@ const useFilter = (data) => {
       setTodayOrder(todayOrder);
 
       //monthly order calculation
-      const monthlyServices = services.filter((order) =>
-        dayjs(calcDate(order.oder_date)).isBetween(
-          new Date().setDate(new Date().getDate() - 30),
-          new Date()
-        )
-      );
+      const monthlyServices = []
 
       const monthlyOrder = monthlyServices.reduce(
         (preValue, currentValue) => preValue + currentValue.cost,
@@ -122,8 +115,9 @@ const useFilter = (data) => {
 
     //category searching
     if (categoryType) {
+      console.log("OKKKKK",categoryType);
       services = services.filter((search) =>
-        search.type.toLowerCase().includes(categoryType.toLowerCase())
+        search?.ten?.toLowerCase().includes(categoryType.toLowerCase()) || search?.tenPhim?.toLowerCase().includes(categoryType.toLowerCase())
       );
     }
 
@@ -158,6 +152,7 @@ const useFilter = (data) => {
     searchOrder,
     status,
     location,
+    categoryType
   ]);
 
   //pagination functionality start
@@ -184,6 +179,7 @@ const useFilter = (data) => {
 
   const handleSubmitForAll = (e) => {
     e.preventDefault();
+    console.log("fsdfds")
     setSearchText(searchRef.current.value);
   };
 
@@ -204,6 +200,7 @@ const useFilter = (data) => {
 
   const handleSubmitCategory = (e) => {
     e.preventDefault();
+    console.log(categoryRef.current.value)
     setCategoryType(categoryRef.current.value);
   };
 

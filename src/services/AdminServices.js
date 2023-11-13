@@ -6,7 +6,7 @@ const AdminServices = {
   },
 
   loginAdmin(body) {
-    return requests.post(`/customer/login`, body);
+    return requests.post(`/api/nhan-vien/login`, body);
   },
 
   forgetPassword(body) {
