@@ -8,14 +8,17 @@ import logoLight from '../../assets/img/logo/movie.png';
 
 import sidebar from '../../routes/sidebar';
 import { AdminContext } from '../../context/AdminContext';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const SidebarContent = () => {
   const { mode } = useContext(WindmillContext);
   const { dispatch } = useContext(AdminContext);
+  const history = useHistory();
 
   const handleLogOut = () => {
-    dispatch({ type: 'USER_LOGOUT' });
-    Cookies.remove('adminInfo');
+    // dispatch({ type: 'USER_LOGOUT' });
+    // Cookies.remove('adminInfo');
+    history.push('/')
   };
 
   return (

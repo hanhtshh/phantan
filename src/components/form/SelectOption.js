@@ -1,7 +1,8 @@
 import React from "react";
 import { Select } from "@windmill/react-ui";
 
-const SelectOption = ({ register, name, label}) => {
+const SelectOption = ({ onChange, register, name, label }) => {
+
   return (
     <>
       <Select
@@ -10,19 +11,21 @@ const SelectOption = ({ register, name, label}) => {
         // {...register(`${name}`, {
         //   required: `${label} is required!`,
         // })}
+        onChange={(value) => {
+          onChange(value.target.value);
+        }}
       >
         <option value="" defaultValue hidden>{label}</option>
-        <option value="Grocery">Grocery</option>
-        <option value="Foods">Foods</option>
-        <option value="Cloths">Cloths</option>
-        <option value="Health Care">Health Care </option>
-        <option value="Medicine">Medicine </option>
-        <option value="Books">Books </option>
-        <option value="Bags">Bags</option>
-        <option value="Sports & Fitness">Sports & Fitness </option>
-        <option value="Home Accessories">Home Accessories</option>
-        <option value="Furniture">Furniture</option>
-        <option value="Electronics">Electronics </option>
+        <option value={1}>1</option>
+        <option value={2}>2</option>
+        <option value={3}>3</option>
+        <option value={4}>4 </option>
+        <option value={5}>5 </option>
+        <option value={6}>6</option>
+        <option value={7}>7</option>
+        <option value={8}>8</option>
+        <option value={9}>9</option>
+        <option value={10}>10</option>
       </Select>
     </>
   );

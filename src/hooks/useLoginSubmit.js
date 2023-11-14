@@ -39,18 +39,25 @@ const useLoginSubmit = () => {
       AdminServices.loginAdmin({ userName: username, passWord: password })
         .then((res) => {
           if (res) {
-            setLoading(false);
-            notifySuccess('Login Success!');
-            // dispatch({ type: 'USER_LOGIN', payload: res });
-            Cookies.set('adminInfo', JSON.stringify({
-              name: "Nguyễn Văn Hạnh",
-              address: "Thái Sơn, Hiệp Hòa, Bắc Giang",
-              telephone: "0966835110",
-              email: "hanh1452001@gmail.com",
-              admin: 0
-              , token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDcyODJmZmNkMjJlOWQzOWUwMTA0YzgiLCJpYXQiOjE2OTk4ODUwMTIsImV4cCI6MTcwMDQ4OTgxMn0.v8ABg2NZ_6mkMlM2n_yo0nkE5VEgW9HK31DkKB8uNac"
-            }));
-            history.replace('/');
+            console.log(res);
+            if (res?.maNv) {
+              setLoading(false);
+              notifySuccess('Đăng nhập thành công!');
+              // dispatch({ type: 'USER_LOGIN', payload: res });
+              Cookies.set('adminInfo', JSON.stringify({
+                name: "Nguyễn Văn Hạnh",
+                address: "Thái Sơn, Hiệp Hòa, Bắc Giang",
+                telephone: "0966835110",
+                email: "hanh1452001@gmail.com",
+                admin: 0,
+                token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDcyODJmZmNkMjJlOWQzOWUwMTA0YzgiLCJpYXQiOjE2OTk4ODUwMTIsImV4cCI6MTcwMDQ4OTgxMn0.v8ABg2NZ_6mkMlM2n_yo0nkE5VEgW9HK31DkKB8uNac"
+              }));
+              localStorage.setItem('maNv', res.maNv)
+              history.push('/customers-list');
+            }
+            else {
+              notifyError('Thông tin đăng nhập không đúng!')
+            }
           }
         })
         .catch((err) => {

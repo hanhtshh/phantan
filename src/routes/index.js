@@ -1,21 +1,15 @@
 import { lazy } from 'react';
 
 // use lazy for better code splitting
-const Dashboard = lazy(() => import('../pages/Dashboard'));
-const Products = lazy(() => import('../pages/Products'));
-const ProductDetails = lazy(() => import('../pages/ProductDetails'));
-const Category = lazy(() => import('../pages/Category'));
-const Staff = lazy(() => import('../pages/Staff'));
-const Customers = lazy(() => import('../pages/Customers'));
+// const Dashboard = lazy(() => import('../pages/Dashboard'));
+// const Products = lazy(() => import('../pages/Products'));
+// const ProductDetails = lazy(() => import('../pages/ProductDetails'));
+// const Category = lazy(() => import('../pages/Category'));
+// const Staff = lazy(() => import('../pages/Staff'));
+// const Customers = lazy(() => import('../pages/Customers'));
 const CustomersList = lazy(() => import('../pages/CustomersList'));
 const MoviesList = lazy(() => import('../pages/MoviesList'));
-const CustomerOrder = lazy(() => import('../pages/CustomerOrder'));
-const Orders = lazy(() => import('../pages/Orders'));
-const OrderInvoice = lazy(() => import('../pages/OrderInvoice'));
-const Coupons = lazy(() => import('../pages/Coupons'));
 // const Setting = lazy(() => import("../pages/Setting"));
-const Page404 = lazy(() => import('../pages/404'));
-const EditProfile = lazy(() => import('../pages/EditProfile'));
 
 /*
 //  * ⚠ These are internal routes!
@@ -33,51 +27,51 @@ const routes = [
     path: '/dashboard',
     component: CustomersList,
   },
-  {
-    path: '/products',
-    component: Products,
-  },
-  {
-    path: '/product/:id',
-    component: ProductDetails,
-  },
-  {
-    path: '/category',
-    component: Category,
-  },
-  {
-    path: '/customers',
-    component: Customers,
-  },
-  {
-    path: '/customer-order/:id',
-    component: CustomerOrder,
-  },
-  {
-    path: '/our-staff',
-    component: Staff,
-  },
-  {
-    path: '/orders',
-    component: Orders,
-  },
-  {
-    path: '/order/:id',
-    component: OrderInvoice,
-  },
   // {
-  //   path: '/coupons',
-  //   component: Coupons,
+  //   path: '/products',
+  //   component: Products,
   // },
-  { path: '/setting', component: EditProfile },
-  {
-    path: '/404',
-    component: Page404,
-  },
-  {
-    path: '/edit-profile',
-    component: EditProfile,
-  },
+  // {
+  //   path: '/product/:id',
+  //   component: ProductDetails,
+  // },
+  // {
+  //   path: '/category',
+  //   component: Category,
+  // },
+  // {
+  //   path: '/customers',
+  //   component: Customers,
+  // },
+  // {
+  //   path: '/customer-order/:id',
+  //   component: CustomerOrder,
+  // },
+  // {
+  //   path: '/our-staff',
+  //   component: Staff,
+  // },
+  // {
+  //   path: '/orders',
+  //   component: Orders,
+  // },
+  // {
+  //   path: '/order/:id',
+  //   component: OrderInvoice,
+  // },
+  // // {
+  // //   path: '/coupons',
+  // //   component: Coupons,
+  // // },
+  // { path: '/setting', component: EditProfile },
+  // {
+  //   path: '/404',
+  //   component: Page404,
+  // },
+  // {
+  //   path: '/edit-profile',
+  //   component: EditProfile,
+  // },
   {
     path: '/customers-list',
     component: CustomersList,

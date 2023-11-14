@@ -2,13 +2,15 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 const instance = axios.create({
-  baseURL: `https://0ff5-103-156-42-98.ngrok-free.app`,
+  baseURL: `https://5c70-103-156-42-98.ngrok-free.app`,
   timeout: 500000,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
   },
 });
+
+export const SERVER_HOSt = 'https://5c70-103-156-42-98.ngrok-free.app'
 
 // Add a request interceptor
 instance.interceptors.request.use(function (config) {

@@ -16,10 +16,12 @@ import {
 
 import { AdminContext } from '../../context/AdminContext';
 import { SidebarContext } from '../../context/SidebarContext';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Header = () => {
   const { toggleSidebar } = useContext(SidebarContext);
   const { state, dispatch } = useContext(AdminContext);
+  const history = useHistory();
   const { adminInfo } = state;
   const { mode, toggleMode } = useContext(WindmillContext);
   const [profileOpen, setProfileOpen] = useState(false);
@@ -28,8 +30,9 @@ const Header = () => {
   const nRef = useRef();
 
   const handleLogOut = () => {
-    dispatch({ type: 'USER_LOGOUT' });
-    Cookies.remove('adminInfo');
+    // dispatch({ type: 'USER_LOGOUT' });
+    // Cookies.remove('adminInfo');
+    history.push('/login')
   };
 
   useEffect(() => {

@@ -31,7 +31,7 @@ const App = () => {
             {' '}
             <Route path="/" component={Layout} />
           </PrivateRoute>
-          <Redirect exact from="/" to="/login" />
+          {/* <Redirect exact from="/" to="/login" /> */}
         </Switch>
       </Router>
     </>

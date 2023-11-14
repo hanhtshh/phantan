@@ -19,12 +19,12 @@ const CustomTable = ({ categories }) => {
 
       <TableBody>
         {categories?.map((parent) => (
-          <TableRow key={parent._id}>
+          <TableRow key={parent?.maLich}>
             <TableCell className="font-semibold uppercase text-xs">
-              {parent.maChieu}
+              {parent?.maLich}
             </TableCell>
-            <TableCell className="text-sm ">{parent.name}</TableCell>
-            <TableCell className="text-sm ">{parent.name}</TableCell>
+            <TableCell className="text-sm ">{parent?.hang}</TableCell>
+            <TableCell className="text-sm ">{parent?.cot}</TableCell>
           </TableRow>
         ))}
       </TableBody>

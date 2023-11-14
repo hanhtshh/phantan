@@ -45,10 +45,10 @@ const Login = () => {
                     defaultValue="admin@gmail.com"
                     label="Email"
                     name="username"
-                    type="email"
+                    type="text"
                     placeholder="john@doe.com"
                   />
-                  <Error errorName={errors.email} />
+                  {/* <Error errorName={errors.email} /> */}
                   <div className="mt-6"></div>
                   <LabelArea label="Password" />
                   <InputArea
@@ -59,7 +59,7 @@ const Login = () => {
                     type="password"
                     placeholder="***************"
                   />
-                  <Error errorName={errors.password} />
+                  {/* <Error errorName={errors.password} /> */}
 
                   <Button
                     disabled={loading}

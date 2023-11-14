@@ -92,6 +92,7 @@ const CustomerList = () => {
                 <TableCell>Địa chỉ</TableCell>
                 <TableCell>Ngày sinh</TableCell>
                 <TableCell>Số điện thoại</TableCell>
+                <TableCell>Hành động</TableCell>
               </tr>
             </TableHeader>
             <CategoryTable categories={dataTable} />

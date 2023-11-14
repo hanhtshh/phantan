@@ -7,7 +7,7 @@ import CategoryDrawer from '../drawer/CategoryDrawer';
 import useToggleDrawer from '../../hooks/useToggleDrawer';
 
 
-const MovieTable = ({ categories }) => {
+const MovieTable = ({ categories, setCheckedMovie, selectedMovie, setSelectedPhong }) => {
   const { serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
 
   return (
@@ -30,6 +30,10 @@ const MovieTable = ({ categories }) => {
             <TableCell className="text-sm ">{parent.tenPhim}</TableCell>
             <TableCell className="text-sm ">{parent.theLoai}</TableCell>
             <TableCell className="text-sm ">{parent.thoiLuong}</TableCell>
+            <TableCell className="text-sm "><input type='checkbox' value={parent.maChieu} checked={selectedMovie === parent.maChieu} onChange={(value) => {
+              setCheckedMovie(value.target.value);
+              setSelectedPhong(parent.maPhong);
+            }}></input></TableCell>
           </TableRow>
         ))}
       </TableBody>
